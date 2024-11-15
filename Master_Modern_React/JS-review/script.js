@@ -151,3 +151,19 @@ const { title, author } = book;
 // Array destructuring
 
 const [primaryGenre, secondaryGenre] = book.genres;
+
+// Rest operator => creates another array of the left over values
+
+const [firstGenre, secondGenre, ...otherGenres] = book.genres;
+
+// Spread operator => does not create a separate array for the values
+
+const newGenres = [...book.genres, "epic fantasy"];
+
+const updatedBook = {
+  ...book,
+  // Adding a new property
+  moviePublication: "2001-12-19",
+  // Overwriting an existing property
+  pages: 1210,
+};
