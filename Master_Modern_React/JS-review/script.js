@@ -167,3 +167,7 @@ const updatedBook = {
   // Overwriting an existing property
   pages: 1210,
 };
+
+// Template literals => allows us to include variables or JS expressions in a string
+
+const summary = `${title} is a book`;
