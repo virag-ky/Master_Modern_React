@@ -171,3 +171,7 @@ const updatedBook = {
 // Template literals => allows us to include variables or JS expressions in a string
 
 const summary = `${title} is a book`;
+
+// Ternary operator
+
+const pagesRange = book.pages > 1000 ? "over a thousand" : "less than 1000";
