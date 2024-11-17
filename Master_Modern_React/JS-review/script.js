@@ -175,3 +175,7 @@ const summary = `${title} is a book`;
 // Ternary operator
 
 const pagesRange = book.pages > 1000 ? "over a thousand" : "less than 1000";
+
+// Arrow functions
+
+const getYear = (str) => str.split("-")[0];
