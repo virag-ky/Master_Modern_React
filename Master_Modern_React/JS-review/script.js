@@ -179,3 +179,16 @@ const pagesRange = book.pages > 1000 ? "over a thousand" : "less than 1000";
 // Arrow functions
 
 const getYear = (str) => str.split("-")[0];
+
+// Short-curcuiting and logical operators
+
+console.log(true && "apple"); // apple, no short-curcuiting
+console.log(false && "apple"); // false, there's a short-curcuit because the first value is false
+
+console.log(true || "apple"); // true
+console.log(false || "apple"); // apple
+
+// Nullish coalescing operator
+console.log(0 || "apple"); // sometimes we want the 0 which is a falsy value since it's still a piece of data and not undefined, so in that case we can use the nullish coalescing operator
+
+console.log(book.reviews.librarything.reviewsCount ?? "no data"); // 0, this operator will return the second value when the first value is null or undefined
