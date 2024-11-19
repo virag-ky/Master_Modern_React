@@ -192,3 +192,13 @@ console.log(false || "apple"); // apple
 console.log(0 || "apple"); // sometimes we want the 0 which is a falsy value since it's still a piece of data and not undefined, so in that case we can use the nullish coalescing operator
 
 console.log(book.reviews.librarything.reviewsCount ?? "no data"); // 0, this operator will return the second value when the first value is null or undefined
+
+// Optional chaining
+
+function getTotalReviewCount(book) {
+  const goodReads = book.reviews.goodreads.reviewsCount;
+  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+  return goodReads + librarything;
+}
+
+console.log(getTotalReviewCount(book));
