@@ -220,3 +220,7 @@ const essentialData = books.map((book) => ({
 // Array filter
 
 const longBooks = books.filter((book) => book.pages > 500);
+
+// Array reduce
+
+const pages = books.reduce((acc, book) => acc + book.pages, 0);
