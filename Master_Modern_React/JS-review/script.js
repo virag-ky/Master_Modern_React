@@ -224,3 +224,10 @@ const longBooks = books.filter((book) => book.pages > 500);
 // Array reduce
 
 const pages = books.reduce((acc, book) => acc + book.pages, 0);
+
+// Array sort => mutates the original array
+
+const arr = [3, 5, 1, 9, 7];
+const sorted = [...arr].sort((a, b) => a - b);
+
+const sortedByPages = [...books].sort((a, b) => b.pages - a.pages);
