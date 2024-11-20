@@ -231,3 +231,22 @@ const arr = [3, 5, 1, 9, 7];
 const sorted = [...arr].sort((a, b) => a - b);
 
 const sortedByPages = [...books].sort((a, b) => b.pages - a.pages);
+
+// Working with immutable arrays
+
+// 1) Add a book object to array
+const newBook = {
+  id: 6,
+  title: "Maisy the dog",
+  author: "Virag K.",
+};
+
+const booksAfterAdd = [...books, newBook];
+
+// 2) Delete a book object from array
+const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
+
+// 3) Update a book object in the array
+const booksAfterUpdate = booksAfterDelete.map((book) =>
+  book.id === 1 ? { ...book, pages: 1210 } : book
+);
