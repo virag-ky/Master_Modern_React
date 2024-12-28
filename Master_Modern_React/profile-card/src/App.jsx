@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 const skills = [
   {
     skill: "HTML + CSS",
@@ -59,17 +60,21 @@ function SkillList() {
   return (
     <div className="skill-list">
       {skills.map((skill) => (
-        <Skill skillObj={skill} emoji="" />
+        <Skill key={skill.skill} skillObj={skill} />
       ))}
     </div>
   );
 }
 
-function Skill({ skillObj, emoji }) {
+function Skill({ skillObj }) {
   return (
     <div className="skill" style={{ backgroundColor: skillObj.color }}>
       <span>{skillObj.skill}</span>
-      <span>{emoji}</span>
+      <span>
+        {skillObj.level === "beginner" && "👶"}
+        {skillObj.level === "intermediate" && "👍"}
+        {skillObj.level === "advanced" && "💪"}
+      </span>
     </div>
   );
 }
