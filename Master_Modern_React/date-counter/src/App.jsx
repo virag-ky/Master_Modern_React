@@ -3,9 +3,10 @@ import { useState } from "react";
 function App() {
   const [step, setStep] = useState(1);
   const [count, setCount] = useState(0);
-  const [date, setDate] = useState(new Date());
-  const [milliSeconds, setMilliSeconds] = useState();
-  console.log();
+  const [date, setDate] = useState();
+  let currDate = new Date();
+  let hoursInMilliSeconds;
+  let newDate;
 
   function handleDecreaseStep() {
     if (step >= 2) setStep((currStep) => currStep - 1);
@@ -16,11 +17,22 @@ function App() {
   }
 
   function handleDecreaseCount() {
-    if (count >= 1) setCount((currCount) => currCount - step);
+    if (count < step) {
+      setCount(0);
+      setDate(() => formatDate(new Date()));
+    } else {
+      hoursInMilliSeconds = (count - step) * 24 * 60 * 60 * 1000;
+      newDate = new Date(currDate.getTime() + hoursInMilliSeconds);
+      setCount((currCount) => currCount - step);
+      setDate(() => formatDate(newDate));
+    }
   }
 
   function handleIncreaseCount() {
+    hoursInMilliSeconds = (count + step) * 24 * 60 * 60 * 1000;
+    newDate = new Date(currDate.getTime() + hoursInMilliSeconds);
     setCount((currCount) => currCount + step);
+    setDate(() => formatDate(newDate));
   }
 
   function formatDate(dateObj) {
@@ -28,7 +40,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className="date-counter">
       <div className="step-container">
         <button className="decreaseStep" onClick={handleDecreaseStep}>
           -
@@ -49,13 +61,13 @@ function App() {
       </div>
       <p className="date">
         {count === 0
-          ? `Today is ${formatDate(date)}`
+          ? `Today is ${formatDate(currDate)}`
           : count === 1
-          ? `${count} day from today is ${formatDate(date)}`
-          : `${count} days from today is ${formatDate(date)}`}
+          ? `${count} day from today is ${date}`
+          : `${count} days from today is ${date}`}
         ;
       </p>
-    </>
+    </div>
   );
 }
 
