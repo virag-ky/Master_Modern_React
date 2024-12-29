@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+
+body {
+  background: #f5efff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #a294f9;
+}
+
+.date-counter {
+  width: max-content;
+}
+
+.date-counter div {
+  margin: 10px auto;
+  width: max-content;
+}
+
+p,
+span,
+button {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+p {
+  margin-top: 50px;
+}
+
+.count-container,
+.step-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+button {
+  background: #a294f9;
+  border: none;
+  border-radius: 5px;
+  color: #f5efff;
+  padding: 10px 15px;
+  cursor: pointer;
+}
