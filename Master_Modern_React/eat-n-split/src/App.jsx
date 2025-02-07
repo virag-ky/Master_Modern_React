@@ -48,6 +48,8 @@ function App() {
     setSelectedFriend((selected) =>
       selected?.id === friend.id ? null : friend
     );
+
+    setShowAddFriend(false);
   }
 
   return (
